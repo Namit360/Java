@@ -1,0 +1,43 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"  />
+
+</head>
+
+<body>
+  <div class="col-12">
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-info text-center text-white">
+				<h3>List Of Invoices</h3>
+			</div>
+			<div class="card-body">
+				<table class="table table-hover">
+					<tr class="bg-dark text-white">
+						<th>Staff ID</th>		
+						<th>Staff Name</th>
+						<th>Staff Address</th>
+						<th>Age</th>
+						<th>Salary</th>
+						<th>Email</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+					<tr th:each="ob:${list}">
+						<td th:text=${ob.staffId}></td>
+						<td th:text=${ob.staffName}></td>
+						<td th:text=${ob.staffAddress}></td>
+						<td th:text=${ob.age}></td>
+						<td th:text=${ob.salary}></td>
+						<td th:text=${ob.email}></td>
+					</tr>
+				</table>
+				<a th:href="@{/v1/home}" class= "btn btn-primary">Go to Home</a>
+			</div>
+			<div class="card-footer bg-white text-success" th:if="${message!=null}">
+				<span th:text="${message}"></span>
+			</div>
+		</div>
+	</div></div>
+</body>
+</html>
